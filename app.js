@@ -4,38 +4,33 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     this.reset();
   });
   
-  
-  
-  document.addEventListener("DOMContentLoaded", function () {
-    const itemsPerLoad = 4;
-  
-    // Initialize each section
-    document.querySelectorAll(".product-section").forEach(section => {
-      const productRows = section.querySelectorAll(".product-row");
-      const loadMoreBtn = section.querySelector(".load-more"); // Corrected selector
-  
-      // Loop through each product row and hide excess cards
-      productRows.forEach(row => {
-        const cards = row.querySelectorAll(".card");
-        
-        // Hide all cards except the first batch
-        for (let i = itemsPerLoad; i < cards.length; i++) {
-          cards[i].style.display = "none";
+
+
+ document.addEventListener("DOMContentLoaded", function () {
+    const cards = Array.from(document.querySelectorAll(".product-row .col-sm-6"));
+    const loadMoreButton = document.querySelector(".load-more");
+    const itemsToShow = 8;
+    let currentlyVisible = itemsToShow;
+
+    // Initially hide all cards except the first 8
+    cards.forEach((card, index) => {
+        if (index >= itemsToShow) {
+            card.classList.add("hidden");
         }
-        
-        // Show more cards on button click
-        loadMoreBtn.addEventListener("click", () => {
-          const hiddenCards = Array.from(cards).filter(card => card.style.display === "none");
-          hiddenCards.slice(0, itemsPerLoad).forEach(card => {
-            card.style.display = "block";
-          });
-  
-          // Hide the button if all cards are shown
-          if (hiddenCards.length <= itemsPerLoad) {
-            loadMoreBtn.style.display = "none";
-          }
-        });
-      });
     });
-  });
-  
+
+    // Load More function
+    function loadMore() {
+        const hiddenCards = cards.slice(currentlyVisible, currentlyVisible + 4);
+        hiddenCards.forEach(card => card.classList.remove("hidden"));
+        currentlyVisible += 4;
+
+        // Hide the button if no more items to show
+        if (currentlyVisible >= cards.length) {
+            loadMoreButton.style.display = "none";
+        }
+    }
+
+    // Attach the function to the button click
+    loadMoreButton.addEventListener("click", loadMore);
+});

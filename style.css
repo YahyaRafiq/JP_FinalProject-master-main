@@ -192,6 +192,13 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 /* aboutsection end */
 
+/* wear product section start*/
+.hidden {
+    display: none;
+}
+
+/* wear product section end*/
+
 /* contactussec start */
 
 body, html {
@@ -201,7 +208,7 @@ body, html {
   font-family: 'Arial', sans-serif;
 }
 
-/* Main Section Styling */
+
 .contact-section {
   background-image: url(./images/contactusbackground2.png);
   background-size: cover;
@@ -214,7 +221,7 @@ body, html {
   padding: 40px 20px;
 }
 
-/* Contact Content Styling */
+
 .contact-content {
   width: 100%;
   max-width: 1200px;
@@ -226,7 +233,7 @@ body, html {
   align-items: flex-start;
 }
 
-/* Text Section */
+
 .contact-text {
   flex: 1;
   max-width: 500px;
@@ -259,7 +266,7 @@ body, html {
   color: black;
 }
 
-/* Form Section */
+
 .contact-form {
   flex: 1;
   max-width: 500px;
@@ -269,7 +276,7 @@ body, html {
   color: #333;
 }
 
-/* Form Input Styles */
+
 .contact-form .form-group {
   display: flex;
   flex-direction: column;
@@ -286,7 +293,7 @@ body, html {
   font-size: 16px;
 }
 
-/* Button Styling */
+
 .submit-btn {
   width: 100%;
   margin-top: 20px;
@@ -304,7 +311,7 @@ body, html {
   background-color: #444;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
   .contact-content {
     flex-direction: column;
